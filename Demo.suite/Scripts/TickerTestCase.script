@@ -1,0 +1,32 @@
+﻿
+to handle I_am_on_the_Yahoo_Finance_page
+	Click "AddressBar"
+	Typetext "http://finance.yahoo.com",Return
+end I_am_on_the_Yahoo_Finance_page
+
+to handle I_search_for_VAR
+	params ticker
+	WaitFor 10, "FinanceHeader"
+	wait 2
+	Click "SearchField"
+	Typetext ticker
+	Typetext return
+end I_search_for_VAR
+
+to handle I_should_see_the_VAR_header
+	params ticker
+	WaitFor 10, text:ticker
+end I_should_see_the_VAR_header
+
+to handle I_am_on_the_headlines_page
+	WaitFor 10, "SummaryTabSelected"
+	Click "HistoricalDataTabUnselected"
+	WaitFor 20.0, "TimePeriodUL"
+end I_am_on_the_headlines_page
+
+to handle the_displayed_date_should_be_todays_date
+	set currentDate to ReadText(("TimePeriodUL","TimePeriodLR"))
+	set todaysDate to the date
+	replace period with comma in currentDate
+	assert that currentDate is todaysDate
+end the_displayed_date_should_be_todays_date

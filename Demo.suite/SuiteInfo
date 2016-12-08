@@ -1,0 +1,1 @@
+﻿{EPVersionNumber = 1611290055; Schedules = ({ChangeCount = 8; Name = myParameters; Schedule = ({Connection = Windows; Num = 1; Parameters = "\"Monday\""; Run = YES; Script = "PerformanceTimings.script"; }, {Connection = MacMini; Num = 2; Run = YES; Script = "TickerTestCase.script"; }); }); ScriptMetaData = {}; helpedSuitesInfo = (); helperSuitesInfo = (); }
