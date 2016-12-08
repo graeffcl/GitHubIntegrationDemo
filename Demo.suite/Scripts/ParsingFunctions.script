@@ -1,0 +1,14 @@
+﻿to readResultsNumber Object
+	put imagerectangle(Object) into ResultsRect
+	put readtext((0,ResultsRect.top),ResultsRect.bottomleft) into ResultsNum
+	delete comma from ResultsNum
+	delete period from ResultsNum
+	return ResultsNum
+end readResultsNumber
+
+to removeURL value
+	delete ".com" from value
+	delete "http://" from value
+	delete period from value
+	return value
+end removeURL

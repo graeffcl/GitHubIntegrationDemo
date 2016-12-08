@@ -1,0 +1,39 @@
+﻿
+put file resourcePath("listofitems.txt") into ListofItems
+put "C:\Users\Carrie\Desktop\timing.csv" into filename
+log "Launching app."
+Tap "AmazonStore"
+
+set the collectionfilter to (name:"Android")
+
+Repeat for each line ItemInfo of ListofItems
+	Tap (imageName:"SearchIcon", waitFor:20)
+	WaitFor 20, (image:"SpaceBar")
+	If imagefound(imageName:"ClearAppSearch",WaitFor:.5) then Tap foundimagelocation()
+	wait 1
+	TypeText ItemInfo
+	wait 3
+	Tap (image:"InitiateSearch")
+	
+	WaitFor 20, ("ResultsImage")
+	put the result into Timing
+	Log "It took"&&Timing&&"seconds for the results to appear."
+	
+	Tap "Filter0"
+	put foundimagelocation() into FilterLoc
+	Tap "PrimeLogo"
+	WaitFor 10, "Filter1"
+	
+	put ParsingFunctions.readResultsNumber("ResultsImage") into FilteredResults
+	
+	Tap (text:"Clear all")
+	
+	WaitFor 10, "Filter0"
+	put the result into Timing
+	Log "It took"&&Timing&&"seconds for the filter to be removed."
+	
+	Tap FilterLoc
+end repeat
+
+
+
