@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-﻿log "This is a test log message to work with Git"
+﻿log "Making another change"
 
-=======
-﻿
->>>>>>> refs/remotes/origin/master
 put file resourcePath("listofitems.txt") into ListofItems
 put "C:\Users\Carrie\Desktop\timing.csv" into filename
 log "Launching app."
