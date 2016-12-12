@@ -1,0 +1,19 @@
+﻿BeginTestCase "LaunchBrowser"
+DoubleClick "ChromeIcon"
+Click "AddressBar"
+EndTestCase "LaunchBrowser"
+
+typetext "www.testplant.com"
+typetext return
+BeginTestCase "WebsiteLoaded"
+WaitFor 30, "TestPlantLogo"
+EndTestCase "WebsiteLoaded"
+
+Click "CloseBrowser"
+
+put random(10) into randomNum
+if randomNum > 9 then
+	LogError "Test failed."
+end if
+
+
