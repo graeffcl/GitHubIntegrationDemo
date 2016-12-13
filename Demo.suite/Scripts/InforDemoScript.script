@@ -6,7 +6,7 @@ EndTestCase "LaunchBrowser"
 typetext "www.testplant.com"
 typetext return
 BeginTestCase "WebsiteLoaded"
-WaitFor 30, "TestPlantLogo"
+WaitFor 60, "TestPlantLogo"
 EndTestCase "WebsiteLoaded"
 
 Click "CloseBrowser"
